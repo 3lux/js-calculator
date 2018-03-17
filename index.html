@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+<title>Calculator</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+<table style="width:100%">
+  <tr>
+    <th colspan="4" id="output">0</th>
+  </tr>
+  <tr>
+    <th colspan="4" onclick="clear()">C</th>
+  </tr>
+  <tr>
+    <td onclick="push('7')">7</td>
+    <td onclick="push('8')">8</td> 
+    <td onclick="push('9')">9</td>
+    <td onclick="push('')">+</td>
+  </tr>
+  <tr>
+    <td onclick="push('4')">4</td>
+    <td onclick="push('5')">5</td> 
+    <td onclick="push('6')">6</td>
+    <td onclick="push('')">-</td>
+  </tr>
+  <tr>
+    <td onclick="push('1')">1</td>
+    <td onclick="push('2')">2</td> 
+    <td onclick="push('3')">3</td>
+    <td onclick="push('')">x</td>
+  </tr><tr>
+    <td colspan="2" onclick="push('0')">0</td> 
+    <td onclick="equals()">=</td>
+    <td onclick="push('')">&#247;</td>
+  </tr>
+</table>
+
+</div>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
