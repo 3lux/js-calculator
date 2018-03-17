@@ -1,3 +1,7 @@
+body{
+	background-color: #F2F2F2;
+}
+
 table, th, td {
     border: 1px solid black;
 }
@@ -8,14 +12,26 @@ th, td{
 	font-weight: normal;
 	font-size: 150%;
 	font-family: 'Mina', sans-serif;
+	background-color: #000;
+	color: #FFF;
 }
 
 table{
-	height: 750px;
+	height: 500px;
 }
 
 #output{
 	font-size: 200%;
-	/*padding-left: 75%;*/
 	font-weight: normal;
+	background-color: #F2F2F2;
+	color: #000;
+}
+
+p{
+	font-family: 'Mina', sans-serif;
+	font-size: 80%;
+}
+
+.op{
+	background-color: #FF4F00;
 }

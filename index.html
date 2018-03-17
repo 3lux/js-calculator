@@ -4,39 +4,43 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://fonts.googleapis.com/css?family=Mina" rel="stylesheet">
 </head>
-<body>
+<body align="center">
 <div id="container">
-<table style="width:100%">
+<table style="width:25%" align="center">
   <tr>
     <th colspan="4" id="output">0</th>
   </tr>
   <tr>
-    <th colspan="4" onclick="clear()">C</th>
+    <th colspan="4" onclick="clearOutput()">C</th>
   </tr>
   <tr>
     <td onclick="push('7')">7</td>
     <td onclick="push('8')">8</td> 
     <td onclick="push('9')">9</td>
-    <td onclick="push('')">+</td>
+    <td class="op"onclick="addition()">+</td>
   </tr>
   <tr>
     <td onclick="push('4')">4</td>
     <td onclick="push('5')">5</td> 
     <td onclick="push('6')">6</td>
-    <td onclick="push('')">-</td>
+    <td class="op" onclick="minus()">-</td>
   </tr>
   <tr>
     <td onclick="push('1')">1</td>
     <td onclick="push('2')">2</td> 
     <td onclick="push('3')">3</td>
-    <td onclick="push('')">x</td>
-  </tr><tr>
+    <td class="op" onclick="times()">x</td>
+  </tr>
+  <tr>
     <td colspan="2" onclick="push('0')">0</td> 
-    <td onclick="equals()">=</td>
-    <td onclick="push('')">&#247;</td>
+    <td class="op" onclick="equals()">=</td>
+    <td class="op" onclick="division()">&#247;</td>
   </tr>
 </table>
+</div>
 
+<div id="smallprint">
+	<p>Takes a maximum of 1 operation (+, -, x, &#247;) e.g. <strong>54 + 48<!-- * 56 + 1 &#247; 6 - 45--></strong> </br> Character limit is 20</p>
 </div>
 <script type="text/javascript" src="main.js"></script>
 </body>
