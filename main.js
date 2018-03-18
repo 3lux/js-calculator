@@ -4,6 +4,15 @@ var value1;
 var value2;
 var operationType;
 var clearNext = false;
+var opCount = 0;
+var sum;
+var diff;
+var prod;
+var frac;
+var pointEnabled = true;
+
+console.log("Font: Mina");
+console.log("https://fonts.google.com/specimen/Mina");
 
 function clearOutput(){
 	output.innerHTML = '0';
@@ -11,6 +20,21 @@ function clearOutput(){
 	value1 = 0;
 	value2 = 0;
 	operationType = "";
+	opCount = 0;
+	var sum = 0;
+	var diff = 0;
+	var prod = 0;
+	var frac = 0;
+	pointEnabled = true;
+}
+
+function backspace(){
+	if (numString.length == 1){
+		console.log("Too short");
+	}else{
+		numString = numString.slice(0, -1);
+		output.innerHTML = numString;
+	}
 }
 
 function push(text){
@@ -20,6 +44,11 @@ function push(text){
 	}
 	if (numString == "0"){
 		numString = text;
+	}else if (text == '.' && pointEnabled == true){
+		numString += text;
+		pointEnabled = false;
+	}else if (text == '.' && pointEnabled == false){
+		console.log('Not allowed');
 	}else{
 		numString += text;
 	}
@@ -30,68 +59,105 @@ function push(text){
 	}
 }
 function equals(){
-	console.log("Equals");
 	value2 = Number(numString);
+	pointEnabled = true;
+	numString = "0";
 	switch (operationType){
 		case "add":
-			output.innerHTML = value1 + value2;
+			sum = value1 + value2;
+			output.innerHTML = sum;
 			break;
 		case "sub":
-			output.innerHTML = value1 - value2;
+			diff = value1 - value2;
+			output.innerHTML = diff;
 			break;
 		case "div":
-			output.innerHTML = value1 / value2;
+		        if (value2 == 0){
+				output.innerHTML = "Error";
+			}else{
+				frac = value1 / value2;
+				output.innerHTML = frac;
+			}
 			break;
 		case "times":
-			output.innerHTML = value1 * value2;
+			prod = value1 * value2;
+			output.innerHTML = prod;
 			break;
 		default:
 			output.innerHTML = numString;
 			break;
 	}
-	clearNext = true;
-}
-
-function add(a, b){
-	return a + b;
-}
-
-function subtract(a, b){
-	return a - b;
-}
-
-function multiply(a, b){
-	return a * b;
-}
-
-function divide(a, b){
-	return a/b;
 }
 
 function addition(){
-	operationType = "add";
-	value1 = Number(numString);
-	console.log(value1);
-	numString = "0"
+	if (opCount == 0){
+		console.log("first");
+		operationType = "add";
+		value1 = Number(numString);
+		console.log(value1);
+		numString = "0"
+		opCount = 1
+		pointEnabled = true;
+	}else{
+		equals();
+		value1 = sum;
+		numString = "0"
+		operationType = "add";
+		pointEnabled = true;
+	}
+	
 }
 
 function minus(){
-	operationType = "sub";
-	value1 = Number(numString);
-	console.log(value1);
-	numString = "0"
+	if (opCount == 0){
+		console.log("first");
+		operationType = "sub";
+		value1 = Number(numString);
+		console.log(value1);
+		numString = "0"
+		opCount = 1
+		pointEnabled = true;
+	}else{
+		equals();
+		value1 = diff;
+		numString = "0"
+		operationType = "sub";
+		pointEnabled = true;
+	}
 }
 
 function division(){
-	operationType = "div";
-	value1 = Number(numString);
-	console.log(value1);
-	numString = "0"
+	if (opCount == 0){
+		console.log("first");
+		operationType = "div";
+		value1 = Number(numString);
+		console.log(value1);
+		numString = "0"
+		opCount = 1
+		pointEnabled = true;
+	}else{
+		equals();
+		value1 = frac;
+		numString = "0"
+		operationType = "div";
+		pointEnabled = true;
+	}
 }
 
 function times(){
-	operationType = "times";
-	value1 = Number(numString);
-	console.log(value1);
-	numString = "0"
+	if (opCount == 0){
+		console.log("first");
+		operationType = "times";
+		value1 = Number(numString);
+		console.log(value1);
+		numString = "0"
+		opCount = 1
+		pointEnabled = true;
+	}else{
+		equals();
+		value1 = prod;
+		numString = "0"
+		operationType = "times";
+		pointEnabled = true;
+	}
 }
